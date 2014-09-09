@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){e(window).load(function(){e(".statement_slider").flexslider({animation:"fade",animationLoop:!0,animationSpeed:1e3,controlNav:!1,directionNav:!1})});var t=e(".splash");t.click(function(){e(".splash_slider, .splash_logo",this).animate({opacity:0},1e3,function(){t.animate({opacity:0},1e3,function(){t.hide()})})})});

@@ -1,0 +1,146 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "2556fc9ccecd000552977ae9db6a0cd3",
+      "css": "list",
+      "code": 59419,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "M55.6 198.4H198.4V341.3H55.6V198.4ZM55.6 484.1H198.4V627H55.6V484.1ZM55.6 769.9H198.4V912.8H55.6V769.9ZM341.2 198.4H1055.6V341.3H341.2V198.4ZM341.2 484.1H1055.6V627H341.2V484.1ZM341.2 769.9H1055.6V912.8H341.2V769.9Z",
+        "width": 1000
+      },
+      "search": [
+        "list_icon"
+      ]
+    },
+    {
+      "uid": "73c75aa6b35014253a00457f7ebe6c2f",
+      "css": "pin",
+      "code": 59421,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "M917.4 353.6L839.2 431.8L684 432L567.4 548.6L567.2 703.9L489.7 781.3L372.9 664.6L139.5 898.1L81.5 917.8L101.2 859.8L334.7 626.4L218 509.6L295.5 432.1L450.7 431.9L567.3 315.3L567.5 160.1L645.7 81.9L917.4 353.6Z",
+        "width": 1000
+      },
+      "search": [
+        "pin"
+      ]
+    },
+    {
+      "uid": "d28cb34877ddf30e7e5df7dbf4b095e7",
+      "css": "pages",
+      "code": 59406,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "M858 776H307V59H858V776ZM141 941H692V831H251V224H141V941Z",
+        "width": 1000
+      },
+      "search": [
+        "pages"
+      ]
+    },
+    {
+      "uid": "35a3439cbb26b57e732950f58d8b845c",
+      "css": "settings",
+      "code": 59422,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "M911.3 56.2H87.7L24.4 119.8V880.2L87.7 943.8H911.3L974.6 880.2V119.8L911.3 56.2ZM404.2 690.5H341.5V817.2H277.6V690.5H214.9V563.9H277.6V182.8H341.5V563.9H404.2V690.5ZM784.1 436.1H721.4V817.2H657.5V436.1H594.8V309.5H657.5V182.8H721.4V309.4H784.1V436.1Z",
+        "width": 1000
+      },
+      "search": [
+        "settings"
+      ]
+    },
+    {
+      "uid": "efb01facfb5dd04cfceee319f5f271e9",
+      "css": "close",
+      "code": 59397,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M796.3 898.8L499.2 601.6 202 898.8 100.5 797.3 397.7 500.1 100.5 203 202 101.5 499.2 398.7 796.3 101.5 897.8 203 600.6 500.1 897.8 797.3 796.3 898.8Z",
+        "width": 1000
+      },
+      "search": [
+        "rm_close"
+      ]
+    },
+    {
+      "uid": "354aaef60b3c889ece5c92ef9a7d2907",
+      "css": "prev",
+      "code": 59398,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M726.8 900.8L271.8 500.4 726.8 100V900.8Z",
+        "width": 1000
+      },
+      "search": [
+        "rm_prev"
+      ]
+    },
+    {
+      "uid": "d9784b00f7c09a62835347a84e0db521",
+      "css": "next",
+      "code": 59399,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M271.8 100L726.8 500.4 271.8 900.8V100Z",
+        "width": 1000
+      },
+      "search": [
+        "rm_next"
+      ]
+    },
+    {
+      "uid": "d20071c40b549c1627009493f4c6e1db",
+      "css": "menu",
+      "code": 59392,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "M1000 143V286H0V143H1000ZM0 572H1000V429H0V572ZM0 858H1000V715H0V858Z",
+        "width": 1000
+      },
+      "search": [
+        "menu"
+      ]
+    },
+    {
+      "uid": "fb94e23ae1e7660aa63cc5f351ec7560",
+      "css": "right",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "e9107949dd6c9e8ab2b29ae07156e38c",
+      "css": "linkedin",
+      "code": 59396,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "4568bba1dba45522fc539c733c9b35e5",
+      "css": "twitter",
+      "code": 59394,
+      "src": "typicons"
+    },
+    {
+      "uid": "96aafeab29734d1510805687f7695f8f",
+      "css": "facebook",
+      "code": 59393,
+      "src": "mfglabs"
+    }
+  ]
+}

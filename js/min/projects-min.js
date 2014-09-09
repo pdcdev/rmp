@@ -1,0 +1,1 @@
+jQuery(document).ready(function($){var t=$(".tooltip_container");$(document).on("mousemove",function(e){t.css({top:e.pageY,left:e.pageX})}),$(".project_list li").live("mouseenter",function(){t.css("opacity","1").text($(this).data("tooltip"))}),$(".grid_six").live("mouseleave",function(){t.css("opacity","0").text("")})});

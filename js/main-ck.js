@@ -1,0 +1,1 @@
+jQuery(document).ready(function(e){function r(){t.each(function(){e(this).css("height",Math.round(e(this).width())+"px")})}function i(){n.animate({opacity:"1"},400)}var t=e(".square"),n=e(".fadein");r();e(window).resize(function(){r()}).load(function(){i()})});
