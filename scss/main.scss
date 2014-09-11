@@ -482,7 +482,9 @@ section.layout {
                 @include omega(4n);
                 height: 100%;
                 @include pad(0 0 default 0);
-                cursor: pointer;
+                a {
+                    cursor: pointer;
+                }
                 .item_title {
                     position: absolute;
                     display: block;

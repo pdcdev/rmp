@@ -82,10 +82,10 @@ get_header(); ?>
         <?php while( $the_query->have_posts() ) : $the_query->the_post(); ?>
             <li class="fadein">
             <?php if( get_field('preview') ) : ?>
-                <a href="<?php the_permalink(); ?>">
+                <?php if ( get_field('position') != "Associate" ) : ?> <a href="<?php the_permalink(); ?>"><?php endif; ?>
                     <img src="<?php get_image( get_field('preview'), "thumb" ); ?> ">
                     <span class="people_title"><?php the_title(); ?>, <?php the_field("position"); ?></span>
-                </a>
+                <?php if ( get_field('position') != "Associate" ) : ?></a><?php endif; ?>
             </li>
         <?php endif; ?>
         <?php endwhile; ?>

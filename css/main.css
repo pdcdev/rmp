@@ -460,14 +460,15 @@ section.layout {
     margin-right: 0.9901%;
     width: 24.25743%;
     height: 100%;
-    padding: 0 0 0.9901% 0;
-    cursor: pointer; }
+    padding: 0 0 0.9901% 0; }
     section.layout article.grid_four ol li:last-child {
       margin-right: 0; }
     section.layout article.grid_four ol li:nth-child(4n) {
       margin-right: 0; }
     section.layout article.grid_four ol li:nth-child(4n+1) {
       clear: left; }
+    section.layout article.grid_four ol li a {
+      cursor: pointer; }
     section.layout article.grid_four ol li .item_title {
       position: absolute;
       display: block;
