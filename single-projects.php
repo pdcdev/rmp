@@ -169,32 +169,55 @@ get_header(); ?>
     </article>
     <?php endif; ?>
 
+    <!-- begin related -->
+    <article class="project_related fadein" data-section="related">
+        <h5>Related</h5>
+        <ul>
     <?php
         $this_post_id = get_the_ID();
-        $related_people_posts = [];
         $args = array(
-            'post_type' => 'people',
-            'orderby' => 'title',
-            'order' => 'ASC'
+            'post_type' => 'people'
         );
         //query where THIS post ID exists in Person's related field
         $people = new WP_Query( $args );
 
-        foreach( $people as $person ) { // works
-            $related_posts = get_field('related');
-            foreach( $related_posts as $related_post ) {
-                if ( get_the_ID() == $this_post_id ) {
-                    $related_people_posts[] = $related_post;
-                }
-            }
-        }
-    ?>
-    <?php $posts = array_merge( get_field('project_related'), $related_people_posts ); ?>
+        while( $people->have_posts() ) : $people->the_post(); ?>
+        <!-- person level -->
+        <?php
+            $related_title = get_the_title();
+            $related_permalink = get_permalink();
+            $related_image = get_field("preview");
+        ?>
+
+        <?php if( get_field('related') ) : ?>
+        <?php $posts = get_field('related'); ?>
+            <?php if( $posts ): ?>
+                <?php foreach( $posts as $post ): ?>
+                <?php setup_postdata($post); ?>
+                <?php if( get_the_id($post) == $this_post_id ) : ?>
+                    <!-- related post level -->
+
+                <li class="related_item">
+                    <a href="<?php echo $related_permalink; ?>">
+                        <img src="<?php get_image($related_image, "thumb"); ?>" /> 
+                        <p>Person</p>
+                        <p class="title"><?php echo $related_title ?></p>
+                    </a>
+                </li>
+                    
+                <?php endif; ?>
+                <?php endforeach; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endwhile; ?>
+
+    <?php wp_reset_query(); ?>
+
     <?php if( get_field('project_related') ) : ?>
-    <article class="project_related fadein" data-section="related">
+    
         <?php if( $posts ): ?>
-        <h5>Related</h5>
-        <ul>
+        
             <?php foreach( $posts as $post ): ?>
             <?php setup_postdata($post); ?>
             <li class="related_item">
@@ -225,6 +248,7 @@ get_header(); ?>
         <?php wp_reset_postdata(); ?>
         <?php endif; ?>
     </article>
+    <!-- end related -->
     <?php endif; ?>
 </section>
 
