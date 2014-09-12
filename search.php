@@ -26,10 +26,10 @@
 
             $post_type = get_post_type();
             $obj = get_post_type_object( $post_type );
-
+            $the_post_type = $obj->labels->singular_name;
         ?>
-        <a href="<?php the_permalink(); ?>">
             <li class="fadein">
+                <?php if($the_post_type != 'Video') : ?><a href="<?php the_permalink(); ?>"><?php endif; ?>
                 <div class="result_image">
                     <?php if( get_field('preview') ) : ?>
                         <img src="<?php get_image(get_field('preview'), "thumbnail"); ?> ">
@@ -41,8 +41,8 @@
                     <p class="result_type"><?php echo $obj->labels->singular_name ?></p>
                     <p class="result_title title"><?php the_title(); ?></p>
                 </div>
+                <?php if($the_post_type != 'Video') : ?></a><?php endif; ?>
             </li>
-        </a>
         <?php endwhile; else: ?>
             <div class="entry"><h2><?php _e('Sorry, no posts matched your Search criteria.'); ?></h2></div>
         <?php endif; ?>

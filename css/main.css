@@ -346,22 +346,22 @@ section.layout {
       margin-right: 0; }
     section.layout article:last-child {
       padding: 0.9901% 0 2em 0; }
-  section.layout article.search ol a:first-child li {
-    padding: 0 0 1em 0; }
-  section.layout article.search ol a li {
+  section.layout article.search ol li {
     border-bottom: 1px solid #777777;
     display: block;
     float: left;
     margin-right: 0.9901%;
     width: 100%;
     padding: 1em 0; }
-    section.layout article.search ol a li:last-child {
+    section.layout article.search ol li:first-child {
+      padding: 0 0 1em 0; }
+    section.layout article.search ol li:last-child {
       margin-right: 0; }
-    section.layout article.search ol a li:hover {
+    section.layout article.search ol li:hover {
       color: #ff3301; }
-      section.layout article.search ol a li:hover .result_image {
+      section.layout article.search ol li:hover .result_image {
         opacity: .75; }
-    section.layout article.search ol a li .result_image {
+    section.layout article.search ol li .result_image {
       -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
@@ -369,16 +369,16 @@ section.layout {
       float: left;
       margin-right: 0.9901%;
       width: 32.67327%; }
-      section.layout article.search ol a li .result_image:last-child {
+      section.layout article.search ol li .result_image:last-child {
         margin-right: 0; }
-      section.layout article.search ol a li .result_image img {
+      section.layout article.search ol li .result_image img {
         display: block;
         float: left;
         margin-right: 3.0303%;
         width: 48.48485%; }
-        section.layout article.search ol a li .result_image img:last-child {
+        section.layout article.search ol li .result_image img:last-child {
           margin-right: 0; }
-    section.layout article.search ol a li .result_info {
+    section.layout article.search ol li .result_info {
       -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;
       transition: all 0.3s ease-in-out;
@@ -386,9 +386,9 @@ section.layout {
       float: left;
       margin-right: 0.9901%;
       width: 66.33663%; }
-      section.layout article.search ol a li .result_info:last-child {
+      section.layout article.search ol li .result_info:last-child {
         margin-right: 0; }
-      section.layout article.search ol a li .result_info .result_title {
+      section.layout article.search ol li .result_info .result_title {
         font-family: "HelveticaNeueW01-75Bold"; }
   section.layout article.three_col_body .image_sixth {
     display: block;

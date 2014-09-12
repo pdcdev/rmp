@@ -381,42 +381,39 @@ section.layout {
     }
     article.search {
         ol {
-            a {
+            li {
                 &:first-child {
-                    li {
-                        @include pad(0 0 1em 0);
+                    @include pad(0 0 1em 0);
+                }
+                border-bottom: 1px solid $gray;
+                @include span-columns(12);
+                @include pad(1em 0);     
+                         
+                &:hover {
+                    color: $red;
+                    .result_image {
+                        opacity: .75;
                     }
                 }
-                li {
-                    border-bottom: 1px solid $gray;
-                    @include span-columns(12);
-                    @include pad(1em 0);     
-                             
-                    &:hover {
-                        color: $red;
-                        .result_image {
-                            opacity: .75;
-                        }
+                .result_image {
+                    @include transition (all .3s ease-in-out);
+                    @include span-columns(4);
+                    img {
+                        @include span-columns(2 of 4);
                     }
-                    .result_image {
-                        @include transition (all .3s ease-in-out);
-                        @include span-columns(4);
-                        img {
-                            @include span-columns(2 of 4);
-                        }
-                    }
-                    .result_info {
-                        @include transition (all .3s ease-in-out);
-                        @include span-columns(8);
-                        .result_type {
+                }
+                .result_info {
+                    @include transition (all .3s ease-in-out);
+                    @include span-columns(8);
+                    .result_type {
 
-                        }
-                        .result_title {
-                            font-family: $HelveticaBold;
-                        }
+                    }
+                    .result_title {
+                        font-family: $HelveticaBold;
                     }
                 }
             }
+
         }
     }
     article.three_col_body {
