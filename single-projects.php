@@ -172,7 +172,7 @@ get_header(); ?>
     <!-- begin related -->
     <article class="project_related fadein" data-section="related">
         <h5>Related</h5>
-        <ul>
+        <ul class="related_list">
     <?php
         $this_post_id = get_the_ID();
         $args = array(
@@ -182,7 +182,6 @@ get_header(); ?>
         $people = new WP_Query( $args );
 
         while( $people->have_posts() ) : $people->the_post(); ?>
-        <!-- person level -->
         <?php
             $related_title = get_the_title();
             $related_permalink = get_permalink();
@@ -195,16 +194,13 @@ get_header(); ?>
                 <?php foreach( $posts as $post ): ?>
                 <?php setup_postdata($post); ?>
                 <?php if( get_the_id($post) == $this_post_id ) : ?>
-                    <!-- related post level -->
-
-                <li class="related_item">
+                <li class="related_item" data-sort-term="<?php echo $related_title; ?>">
                     <a href="<?php echo $related_permalink; ?>">
                         <img src="<?php get_image($related_image, "thumb"); ?>" /> 
                         <p>Person</p>
                         <p class="title"><?php echo $related_title ?></p>
                     </a>
                 </li>
-                    
                 <?php endif; ?>
                 <?php endforeach; ?>
             <?php wp_reset_postdata(); ?>
@@ -220,29 +216,46 @@ get_header(); ?>
         
             <?php foreach( $posts as $post ): ?>
             <?php setup_postdata($post); ?>
-            <li class="related_item">
+            
             <?php
-                $attachment_id = get_field("preview");
-                $size = "project_thumb";
-                $thisimage = wp_get_attachment_image_src( $attachment_id, $size );
-
                 $post_type = get_post_type();
                 $obj = get_post_type_object( $post_type );
+                $post_type_name = $obj->labels->singular_name;
+
+                switch($post_type_name) {
+                    case "Project":
+                    $thumb_size = "project_thumb";
+                    break;
+
+                    case "Press Release":
+                    $thumb_size = "project_thumb";
+                    break;
+
+                    case "Publication":
+                    $thumb_size = "thumb";
+                    break;
+
+                    default:
+                    $thumb_size = "project_thumb";
+                }
             ?>
-                <?php if($obj->labels->singular_name != "Award") : ?>
-                <a href="<?php the_permalink(); ?>">
-                    <img src="<?php echo $thisimage[0]; ?>" /> 
-                    <p><?php echo $obj->labels->singular_name; ?></p>
-                    <p class="title"><?php the_title(); ?></p>
-                </a>
+
+                <?php if($post_type_name != "Award") : ?>
+                <li class="related_item" data-sort-term="<?php the_title(); ?>">
+                    <a href="<?php the_permalink(); ?>">
+                        <img src="<?php get_image(get_field("preview"), $thumb_size); ?>" /> 
+                        <p><?php echo $post_type_name; ?></p>
+                        <p class="title"><?php the_title(); ?></p>
+                    </a>
+                </li>
                 <?php else: // if award ?>
-                    <p><?php echo $obj->labels->singular_name ?></p>
-                    <img src="<?php echo $thisimage[0]; ?>" /> 
+                <li class="related_item" data-sort-term="<?php the_title(); ?>">
+                    <p><?php echo $post_type_name ?></p>
                     <p class="title"><?php the_title(); ?></p>
                     <p><?php the_field("awarded_by"); ?></p>
                     <p><?php the_field("awarded_to"); ?></p>
+                </li>
                 <?php endif; ?>
-            </li>
             <?php endforeach; ?>
         </ul>
         <?php wp_reset_postdata(); ?>
