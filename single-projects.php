@@ -185,6 +185,7 @@ get_header(); ?>
             $related_title = get_the_title();
             $related_permalink = get_permalink();
             $related_image = get_field("preview");
+            $related_position = get_field("position");
         ?>
 
         <?php if( get_field('related') ) : ?>
@@ -196,7 +197,7 @@ get_header(); ?>
                 <li class="related_item" data-sort-term="<?php echo array_pop( explode(" ", $related_title)); ?>">
                     <a href="<?php echo $related_permalink; ?>">
                         <img src="<?php get_image($related_image, "thumb"); ?>" /> 
-                        <p>Person</p>
+                        <p><?php echo $related_position; ?></p>
                         <p class="title"><?php echo $related_title ?></p>
                     </a>
                 </li>
@@ -238,7 +239,7 @@ get_header(); ?>
                     $thumb_size = "project_thumb";
                 }
             ?>
-
+            <?php if($post_type_name != "Person") : ?>
                 <?php if($post_type_name != "Award") : ?>
                 <li class="related_item" data-sort-term="<?php if( get_field("project-alpha-sort") ) { the_field("project-alpha-sort"); } else { the_title(); }  ?>">
                     <a href="<?php the_permalink(); ?>">
@@ -254,7 +255,7 @@ get_header(); ?>
                     <p><?php the_field("awarded_by"); ?></p>
                     <p><?php the_field("awarded_to"); ?></p>
                 </li>
-                <?php endif; ?>
+                <?php endif; endif; ?>
             <?php endforeach; ?>
         </ul>
         <?php wp_reset_postdata(); ?>
