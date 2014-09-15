@@ -178,7 +178,6 @@ get_header(); ?>
         $args = array(
             'post_type' => 'people'
         );
-        //query where THIS post ID exists in Person's related field
         $people = new WP_Query( $args );
 
         while( $people->have_posts() ) : $people->the_post(); ?>
@@ -194,7 +193,7 @@ get_header(); ?>
                 <?php foreach( $posts as $post ): ?>
                 <?php setup_postdata($post); ?>
                 <?php if( get_the_id($post) == $this_post_id ) : ?>
-                <li class="related_item" data-sort-term="<?php echo $related_title; ?>">
+                <li class="related_item" data-sort-term="<?php echo array_pop( explode(" ", $related_title)); ?>">
                     <a href="<?php echo $related_permalink; ?>">
                         <img src="<?php get_image($related_image, "thumb"); ?>" /> 
                         <p>Person</p>
@@ -211,11 +210,11 @@ get_header(); ?>
     <?php wp_reset_query(); ?>
 
     <?php if( get_field('project_related') ) : ?>
-    
-        <?php if( $posts ): ?>
+    <?php $related_posts = get_field('project_related'); ?>
+        <?php if( $related_posts ): ?>
         
-            <?php foreach( $posts as $post ): ?>
-            <?php setup_postdata($post); ?>
+            <?php foreach( $related_posts as $related_post ): ?>
+            <?php $post = $related_post; setup_postdata($post); ?>
             
             <?php
                 $post_type = get_post_type();
@@ -241,7 +240,7 @@ get_header(); ?>
             ?>
 
                 <?php if($post_type_name != "Award") : ?>
-                <li class="related_item" data-sort-term="<?php the_title(); ?>">
+                <li class="related_item" data-sort-term="<?php if( get_field("project-alpha-sort") ) { the_field("project-alpha-sort"); } else { the_title(); }  ?>">
                     <a href="<?php the_permalink(); ?>">
                         <img src="<?php get_image(get_field("preview"), $thumb_size); ?>" /> 
                         <p><?php echo $post_type_name; ?></p>
