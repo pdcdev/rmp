@@ -65,20 +65,22 @@
 
                 $post_type = get_post_type();
                 $obj = get_post_type_object( $post_type );
+                $post_type_singular = $obj->labels->singular_name;
             ?>
-                <?php if($obj->labels->singular_name != "Award") : ?>
+                <?php if($post_type_singular != "Person") : ?> <!-- temp to hide entered people -->
+                <?php if($post_type_singular != "Award") : ?>
                 <a href="<?php the_permalink(); ?>">
                     <img src="<?php echo $thisimage[0]; ?>" /> 
                     <p><?php echo $obj->labels->singular_name ?></p>
                     <p class="title"><?php the_title(); ?></p>
                 </a>
                 <?php else: // if award ?>
-                    <p><?php echo $obj->labels->singular_name ?></p>
+                    <p><?php echo $post_type_singular; ?></p>
                     <img src="<?php echo $thisimage[0]; ?>" /> 
                     <p class="title"><?php the_title(); ?></p>
                     <p><?php the_field("awarded_by"); ?></p>
                     <p><?php the_field("awarded_to"); ?></p>
-                <?php endif; ?>
+                <?php endif; endif; ?>
             </li>
             <?php endforeach; ?>
         </ul>
