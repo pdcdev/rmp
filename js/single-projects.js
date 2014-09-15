@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
 
-    var gallery_click_zone = $(".slides li");
     var x_center = Math.round($(window).width()/2);
     var mouse_x = 0;
  
@@ -14,7 +13,29 @@ jQuery(document).ready(function($) {
         $.scrollTo($("article[data-section='"+$(this).attr("data-type")+"']"), 2000, {easing: 'easeOutExpo'});
     });
 
-    var galleries = $(".project_galleries");
+    function sortProjects(parent, children, attribute, order) {
+
+        var mylist = parent;
+
+        var listitems = children; //mylist.children(children).get();
+
+        listitems.sort(function(a, b) {
+
+            var compA = $(a).attr(attribute).toUpperCase();
+            var compB = $(b).attr(attribute).toUpperCase();
+
+            return (compA < compB) ? -1 : (compA > compB) ? 1 : 0;
+        });
+
+        if (order === "desc") {
+            listitems.reverse();
+        }
+
+        $.each(listitems, function(idx, itm) {
+            mylist.append(itm);
+        });
+
+    }
 
     function count_characters() {
         var char_limit = 1500;
@@ -52,6 +73,7 @@ jQuery(document).ready(function($) {
 
     $(window).load(function() {
         count_characters();
+        sortProjects($(".related_list"),$(".related_item"),"data-sort-term", "asc");
     });
 
 });

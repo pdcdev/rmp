@@ -169,62 +169,98 @@ get_header(); ?>
     </article>
     <?php endif; ?>
 
+    <!-- begin related -->
+    <article class="project_related fadein" data-section="related">
+        <h5>Related</h5>
+        <ul class="related_list">
     <?php
         $this_post_id = get_the_ID();
-        $related_people_posts = [];
         $args = array(
-            'post_type' => 'people',
-            'orderby' => 'title',
-            'order' => 'ASC'
+            'post_type' => 'people'
         );
-        //query where THIS post ID exists in Person's related field
         $people = new WP_Query( $args );
 
-        foreach( $people as $person ) { // works
-            $related_posts = get_field('related');
-            foreach( $related_posts as $related_post ) {
-                if ( get_the_ID() == $this_post_id ) {
-                    $related_people_posts[] = $related_post;
-                }
-            }
-        }
-    ?>
-    <?php $posts = array_merge( get_field('project_related'), $related_people_posts ); ?>
-    <?php if( get_field('project_related') ) : ?>
-    <article class="project_related fadein" data-section="related">
-        <?php if( $posts ): ?>
-        <h5>Related</h5>
-        <ul>
-            <?php foreach( $posts as $post ): ?>
-            <?php setup_postdata($post); ?>
-            <li class="related_item">
-            <?php
-                $attachment_id = get_field("preview");
-                $size = "project_thumb";
-                $thisimage = wp_get_attachment_image_src( $attachment_id, $size );
+        while( $people->have_posts() ) : $people->the_post(); ?>
+        <?php
+            $related_title = get_the_title();
+            $related_permalink = get_permalink();
+            $related_image = get_field("preview");
+        ?>
 
+        <?php if( get_field('related') ) : ?>
+        <?php $posts = get_field('related'); ?>
+            <?php if( $posts ): ?>
+                <?php foreach( $posts as $post ): ?>
+                <?php setup_postdata($post); ?>
+                <?php if( get_the_id($post) == $this_post_id ) : ?>
+                <li class="related_item" data-sort-term="<?php echo array_pop( explode(" ", $related_title)); ?>">
+                    <a href="<?php echo $related_permalink; ?>">
+                        <img src="<?php get_image($related_image, "thumb"); ?>" /> 
+                        <p>Person</p>
+                        <p class="title"><?php echo $related_title ?></p>
+                    </a>
+                </li>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endwhile; ?>
+
+    <?php wp_reset_query(); ?>
+
+    <?php if( get_field('project_related') ) : ?>
+    <?php $related_posts = get_field('project_related'); ?>
+        <?php if( $related_posts ): ?>
+        
+            <?php foreach( $related_posts as $related_post ): ?>
+            <?php $post = $related_post; setup_postdata($post); ?>
+            
+            <?php
                 $post_type = get_post_type();
                 $obj = get_post_type_object( $post_type );
+                $post_type_name = $obj->labels->singular_name;
+
+                switch($post_type_name) {
+                    case "Project":
+                    $thumb_size = "project_thumb";
+                    break;
+
+                    case "Press Release":
+                    $thumb_size = "project_thumb";
+                    break;
+
+                    case "Publication":
+                    $thumb_size = "thumb";
+                    break;
+
+                    default:
+                    $thumb_size = "project_thumb";
+                }
             ?>
-                <?php if($obj->labels->singular_name != "Award") : ?>
-                <a href="<?php the_permalink(); ?>">
-                    <img src="<?php echo $thisimage[0]; ?>" /> 
-                    <p><?php echo $obj->labels->singular_name; ?></p>
-                    <p class="title"><?php the_title(); ?></p>
-                </a>
+
+                <?php if($post_type_name != "Award") : ?>
+                <li class="related_item" data-sort-term="<?php if( get_field("project-alpha-sort") ) { the_field("project-alpha-sort"); } else { the_title(); }  ?>">
+                    <a href="<?php the_permalink(); ?>">
+                        <img src="<?php get_image(get_field("preview"), $thumb_size); ?>" /> 
+                        <p><?php echo $post_type_name; ?></p>
+                        <p class="title"><?php the_title(); ?></p>
+                    </a>
+                </li>
                 <?php else: // if award ?>
-                    <p><?php echo $obj->labels->singular_name ?></p>
-                    <img src="<?php echo $thisimage[0]; ?>" /> 
+                <li class="related_item" data-sort-term="<?php the_title(); ?>">
+                    <p><?php echo $post_type_name ?></p>
                     <p class="title"><?php the_title(); ?></p>
                     <p><?php the_field("awarded_by"); ?></p>
                     <p><?php the_field("awarded_to"); ?></p>
+                </li>
                 <?php endif; ?>
-            </li>
             <?php endforeach; ?>
         </ul>
         <?php wp_reset_postdata(); ?>
         <?php endif; ?>
     </article>
+    <!-- end related -->
     <?php endif; ?>
 </section>
 
