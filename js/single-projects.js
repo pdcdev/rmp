@@ -14,7 +14,6 @@ jQuery(document).ready(function($) {
     });
 
     function sortProjects(parent, children, attribute, order) {
-
         var mylist = parent;
 
         var listitems = children; //mylist.children(children).get();
@@ -34,9 +33,7 @@ jQuery(document).ready(function($) {
         $.each(listitems, function(idx, itm) {
             mylist.append(itm);
         });
-
     }
-
     function count_characters() {
         var char_limit = 1500;
         num_chars = $(".description p").text().length;

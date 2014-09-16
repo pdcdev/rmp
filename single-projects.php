@@ -241,7 +241,7 @@ get_header(); ?>
             ?>
             <?php if($post_type_name != "Person") : ?>
                 <?php if($post_type_name != "Award") : ?>
-                <li class="related_item" data-sort-term="<?php if( get_field("project-alpha-sort") ) { the_field("project-alpha-sort"); } else { the_title(); }  ?>">
+                <li class="related_item" data-sort-term="<?php if( get_field("project_alpha_sort") ) { the_field("project_alpha_sort"); } else { the_title(); }  ?>">
                     <a href="<?php the_permalink(); ?>">
                         <img src="<?php get_image(get_field("preview"), $thumb_size); ?>" /> 
                         <p><?php echo $post_type_name; ?></p>

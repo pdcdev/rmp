@@ -53,45 +53,7 @@
     <article class="project_related fadein" data-section="related">
         <h5>Related</h5>
         <ul class="related_list">
-    <?php
-        $this_post_id = get_the_ID();
-        $args = array(
-            'post_type' => 'people'
-        );
-        $people = new WP_Query( $args );
-
-        while( $people->have_posts() ) : $people->the_post(); ?>
-        <?php
-            $related_title = get_the_title();
-            $related_permalink = get_permalink();
-            $related_image = get_field("preview");
-            $related_position = get_field("position");
-        ?>
-
-        <?php if( get_field('related') ) : ?>
-        <?php $posts = get_field('related'); ?>
-            <?php if( $posts ): ?>
-                <?php foreach( $posts as $post ): ?>
-                <?php setup_postdata($post); ?>
-                <?php if( get_the_id($post) == $this_post_id ) : ?>
-                <li class="related_item" data-sort-term="<?php echo array_pop( explode(" ", $related_title)); ?>">
-                    <a href="<?php echo $related_permalink; ?>">
-                        <img src="<?php get_image($related_image, "thumb"); ?>" /> 
-                        <p><?php echo $related_position; ?></p>
-                        <p class="title"><?php echo $related_title ?></p>
-                    </a>
-                </li>
-                <?php endif; ?>
-                <?php endforeach; ?>
-            <?php wp_reset_postdata(); ?>
-            <?php endif; ?>
-        <?php endif; ?>
-    <?php endwhile; ?>
-
-    <?php wp_reset_query(); ?>
-
-    <?php if( get_field('project_related') ) : ?>
-    <?php $related_posts = get_field('project_related'); ?>
+    <?php $related_posts = get_field('related'); ?>
         <?php if( $related_posts ): ?>
         
             <?php foreach( $related_posts as $related_post ): ?>
@@ -121,7 +83,7 @@
             ?>
             <?php if($post_type_name != "Person") : ?>
                 <?php if($post_type_name != "Award") : ?>
-                <li class="related_item" data-sort-term="<?php if( get_field("project-alpha-sort") ) { the_field("project-alpha-sort"); } else { the_title(); }  ?>">
+                <li class="related_item" data-sort-term="<?php if( get_field("project_alpha_sort") ) { the_field("project_alpha_sort"); } else { the_title(); }  ?>">
                     <a href="<?php the_permalink(); ?>">
                         <img src="<?php get_image(get_field("preview"), $thumb_size); ?>" /> 
                         <p><?php echo $post_type_name; ?></p>
@@ -141,8 +103,8 @@
         <?php wp_reset_postdata(); ?>
         <?php endif; ?>
     </article>
-    <!-- end related -->
     <?php endif; ?>
+    <!-- end related -->
 
 </section>
 
