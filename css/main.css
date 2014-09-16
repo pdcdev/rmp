@@ -24,9 +24,6 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: "HelveticaNeueW01-55Roma";
   color: #777777; }
-  @media screen and (max-width: 768px) {
-    body {
-      min-width: auto; } }
 
 body.frontpage .header_container header nav div.menu-main-container ul li a {
   color: #fff; }
