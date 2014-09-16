@@ -1,6 +1,7 @@
 jQuery(document).ready(function($) {
 
     $(window).load(function() {
+        $(document).bind('touchmove', false);
         $('.statement_slider').flexslider({
         animation: "fade",
         animationLoop: true,
@@ -13,10 +14,12 @@ jQuery(document).ready(function($) {
     var splash = $(".splash");
 
     splash.click(function(){
+        $(document).unbind('touchmove', false);
         $(".splash_slider, .splash_logo", this).animate({opacity: 0}, 1000,function(){
             splash.animate({opacity: 0}, 1000, function(){
                 splash.hide();
             });
         });
     });
+
 });

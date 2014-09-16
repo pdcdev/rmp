@@ -750,7 +750,7 @@ section.home {
     @include outer-container;
     @include pad(0 $desk 3em $desk);
     article {
-        margin-top: 240px;
+        margin-top: 240px;     
         border-top: 1px solid $gray;
         border-bottom: 1px solid $gray;
         height: 525px;
