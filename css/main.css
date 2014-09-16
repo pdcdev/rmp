@@ -721,22 +721,22 @@ section.layout {
       width: 66.33663%; }
       section.layout article.people_affiliated ul:last-child {
         margin-right: 0; }
-      section.layout article.people_affiliated ul li.related_item {
+      section.layout article.people_affiliated ul li {
         display: block;
         float: left;
         margin-right: 1.49254%;
         width: 49.25373%;
         padding: 0 0 0.9901% 0;
         height: 50px; }
-        section.layout article.people_affiliated ul li.related_item:last-child {
+        section.layout article.people_affiliated ul li:last-child {
           margin-right: 0; }
-        section.layout article.people_affiliated ul li.related_item:nth-child(2n) {
+        section.layout article.people_affiliated ul li:nth-child(2n) {
           margin-right: 0; }
-        section.layout article.people_affiliated ul li.related_item:nth-child(2n+1) {
+        section.layout article.people_affiliated ul li:nth-child(2n+1) {
           clear: left; }
-        section.layout article.people_affiliated ul li.related_item a {
+        section.layout article.people_affiliated ul li a {
           cursor: pointer; }
-        section.layout article.people_affiliated ul li.related_item .title {
+        section.layout article.people_affiliated ul li .title {
           font-family: "HelveticaNeueW01-85Heav"; }
   section.layout article.project_related {
     display: block;

@@ -67,6 +67,11 @@ function theme_js() {
     }
 }
 
+function sanitize_string($word) {
+    $cleanword = strtolower(preg_replace("/[^a-z]+/i", "", $word));
+    return $cleanword;
+}
+
 function get_image($element, $size) {
     $image = wp_get_attachment_image_src( $element, $size );
     echo $image[0];

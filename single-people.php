@@ -40,7 +40,7 @@
         <h5>Afilliations</h5>
         <ul>
             <?php while ( have_rows('affiliations') ) : the_row(); ?>
-            <li class="related_item">
+            <li class="affiliation_item">
                 <p class="title"><?php the_sub_field("affiliation"); ?></p>
                 <p><?php the_sub_field("affiliation_designation"); ?></p>
             </li>
@@ -76,6 +76,10 @@
                     case "Publication":
                     $thumb_size = "thumb";
                     break;
+                    
+                    case "Book":
+                    $thumb_size = "thumb";
+                    break;
 
                     default:
                     $thumb_size = "project_thumb";
@@ -83,7 +87,7 @@
             ?>
             <?php if($post_type_name != "Person") : ?>
                 <?php if($post_type_name != "Award") : ?>
-                <li class="related_item" data-sort-term="<?php if( get_field("project_alpha_sort") ) { the_field("project_alpha_sort"); } else { the_title(); }  ?>">
+                <li class="related_item" data-sort-term="<?php if( get_field("project_alpha_sort") ) { echo sanitize_string(get_field("project_alpha_sort")); } else { echo sanitize_string(get_the_title()); }  ?>">
                     <a href="<?php the_permalink(); ?>">
                         <img src="<?php get_image(get_field("preview"), $thumb_size); ?>" /> 
                         <p><?php echo $post_type_name; ?></p>
