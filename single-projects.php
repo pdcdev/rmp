@@ -235,6 +235,10 @@ get_header(); ?>
                     $thumb_size = "thumb";
                     break;
 
+                    case "Book":
+                    $thumb_size = "thumb";
+                    break;
+                    
                     default:
                     $thumb_size = "project_thumb";
                 }

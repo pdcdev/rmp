@@ -23,7 +23,8 @@ body {
   min-width: 980px;
   -webkit-font-smoothing: antialiased;
   font-family: "HelveticaNeueW01-55Roma";
-  color: #777777; }
+  color: #777777;
+  letter-spacing: -0.01em; }
 
 body.frontpage .header_container header nav div.menu-main-container ul li a {
   color: #fff; }
