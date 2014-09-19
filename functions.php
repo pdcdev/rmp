@@ -105,7 +105,7 @@ add_action( 'wp_enqueue_scripts', 'theme_styles' );
 add_action( 'wp_enqueue_scripts', 'theme_js' );
 add_action('init', function() {
     if (!isset($_COOKIE['visited_recently'])) {
-        setcookie('visited_recently', true, strtotime('1000*60*5'));
+        setcookie('visited_recently', true, strtotime('1000*60*3'));
     }
 });
 

@@ -3,6 +3,7 @@
     Template Name: Coming Soon
 */
 get_header(); ?>
+<!-- coming soon -->
 <div class="comingsoon">
     <h1>Richard Meier &amp; Partners Architects <span>LLP</span></h1>
     <p>We will be back soon.</p>
