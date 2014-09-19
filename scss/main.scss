@@ -16,6 +16,26 @@ $red: #ff3301;
 
 $desk: 30px;
 
+.comingsoon {
+    text-align: center;
+    font-family: $BodoniBook;
+    @include outer-container;
+    h1 {
+        @include pad(1em 0);
+        font-family: $BodoniRoman;
+        font-size: 3.5em;
+        letter-spacing: -0.04em;
+        span {
+            font-size: .7em;
+        }
+        border-bottom: 1px solid $gray;
+    }
+    p {
+        font-size: 2em;
+        @include pad(2em 0);
+    }
+}
+
 * {
     text-decoration: none;
     color: inherit;
