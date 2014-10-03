@@ -31,9 +31,7 @@ get_header(); ?>
 </div>
 <div class="project_header"></div>
     <section class="layout people_layout">
-
         <?php
-            
             if ( is_page("Partners") ) {
                 $meta_queries = array(
                     array(
@@ -69,7 +67,6 @@ get_header(); ?>
                     )
                 );
             }
-
             $args = array(
                 'post_type' => 'people',
                 'meta_query' => $meta_queries
