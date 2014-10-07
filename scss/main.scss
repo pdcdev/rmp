@@ -459,6 +459,13 @@ section.layout {
         }
     }
     article.project_body {
+        h3 {
+            @include span-columns(4);
+            font-family: $HelveticaBlack;
+        }
+        h4 {
+            font-family: $HelveticaBlack;
+        }
         .image {
             @include span-columns(4);
             @include pad(0 0 default 0);
@@ -486,6 +493,9 @@ section.layout {
                 @include pad(0 0 1em 0);
                 strong {
                     font-family: $HelveticaBold;
+                }
+                span {
+                    font-family: $HelveticaBlack;
                 }
             }
         }

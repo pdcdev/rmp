@@ -12,7 +12,7 @@ function theme_styles() {
     wp_enqueue_style( 'fontello', get_template_directory_uri() . '/css/fontello/css/fontello.css' );
     wp_register_style( 'fancybox', get_template_directory_uri() . '/css/fancybox.css');
 
-    if ( is_single() ) {
+    if ( is_single() || is_page("museum" || is_page("profile")) ) {
         wp_enqueue_style('fancybox');
     }
 }
@@ -57,7 +57,7 @@ function theme_js() {
     if ( is_page('awards') ) {
         wp_enqueue_script( "awards-year-sort" );
     }
-    if ( is_single() ) {
+    if ( is_single() || is_page("museum") || is_page("profile")) {
         wp_enqueue_script( 'fancybox' );
         // wp_enqueue_script( 'flexslider' );
         wp_enqueue_script( 'waypoints' );

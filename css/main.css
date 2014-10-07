@@ -438,6 +438,16 @@ section.layout {
     section.layout article.three_col_body .description p strong {
       font-weight: normal;
       font-family: "HelveticaNeueW01-75Bold" !important; }
+  section.layout article.project_body h3 {
+    display: block;
+    float: left;
+    margin-right: 0.9901%;
+    width: 32.67327%;
+    font-family: "HelveticaNeueW01-95Blac"; }
+    section.layout article.project_body h3:last-child {
+      margin-right: 0; }
+  section.layout article.project_body h4 {
+    font-family: "HelveticaNeueW01-95Blac"; }
   section.layout article.project_body .image {
     display: block;
     float: left;
@@ -476,6 +486,8 @@ section.layout {
       padding: 0 0 1em 0; }
       section.layout article.project_body .description p strong {
         font-family: "HelveticaNeueW01-75Bold"; }
+      section.layout article.project_body .description p span {
+        font-family: "HelveticaNeueW01-95Blac"; }
   section.layout article.grid_four ol li {
     display: block;
     float: left;
