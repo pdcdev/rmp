@@ -70,7 +70,7 @@ jQuery(document).ready(function($) {
 
     $(window).load(function() {
         count_characters();
-        sortProjects($(".related_list"),$(".related_item"),"data-sort-term", "asc");
+        // sortProjects($(".related_list"),$(".related_item"),"data-sort-term", "asc");
     });
 
 });

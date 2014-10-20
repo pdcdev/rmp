@@ -20,7 +20,7 @@
 </section>
 <?php
     $cookieValue = $_COOKIE['visited_recently'];
-    if($cookieValue == true ) :
+    if(!$cookieValue == true ) :
 ?>
 <div class="splash">
     <div class="splash_slider">

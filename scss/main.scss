@@ -2,39 +2,19 @@
 @import "grid-settings";
 @import "neat/neat";
 
-$BodoniBook: 'Bodoni MT W01 Book';
-$BodoniRoman: 'Bodoni MT W01';
-$HelveticaRoman:'HelveticaNeueW01-55Roma';
-$HelveticaBold:'HelveticaNeueW01-75Bold';
-$HelveticaHeavy:'HelveticaNeueW01-85Heav';
-$HelveticaBlack:'HelveticaNeueW01-95Blac';
+$BodoniBook:     'Bodoni MT W01 Book';
+$BodoniRoman:    'Bodoni MT W01';
+$HelveticaRoman: 'HelveticaNeueW01-55Roma';
+$HelveticaBold:  'HelveticaNeueW01-75Bold';
+$HelveticaHeavy: 'HelveticaNeueW01-85Heav';
+$HelveticaBlack: 'HelveticaNeueW01-95Blac';
 
-$gray: #777;
-$navhover: #bebebe;
+$gray:        #777;
+$navhover:    #bebebe;
 $navinactive: #8c8c8c;
-$red: #ff3301;
+$red:         #ff3301;
 
 $desk: 30px;
-
-.comingsoon {
-    text-align: center;
-    font-family: $BodoniBook;
-    @include outer-container;
-    h1 {
-        @include pad(1em 0);
-        font-family: $BodoniRoman;
-        font-size: 3.5em;
-        letter-spacing: -0.04em;
-        span {
-            font-size: .7em;
-        }
-        border-bottom: 1px solid $gray;
-    }
-    p {
-        font-size: 2em;
-        @include pad(2em 0);
-    }
-}
 
 * {
     text-decoration: none;
@@ -222,7 +202,7 @@ nav.subnav {
 }
 nav.pagination {
     ul.page-numbers {
-        @include pad(1em 0 4em 0);
+        @include pad(1em 0 1.5em 0);
         float: right;
         li {
             float: left;
@@ -280,7 +260,6 @@ nav.pagination {
         height: 140px;
         h3 {
             font-family: $HelveticaBlack;
-
         }
     }
     div.search_field {
@@ -385,9 +364,9 @@ nav.pagination {
 section.layout {
     @include outer-container;
     font-size: .9em;
-.outline {
-                    border: 1px solid #ccc;
-                }
+    .outline {
+        border: 1px solid #ccc;
+    }
     article {
         @include span-columns(12);
         border-top: 1px solid $gray;
@@ -459,11 +438,97 @@ section.layout {
         }
     }
     article.project_body {
+        @include pad(default 0);
+        &.philo {
+            h3 {
+                @include span-columns(4);
+                display: block;
+            }
+            .philosophy_description {
+                @include span-columns(4);
+                p {
+
+                }
+            }
+            .philosophy_image {
+                @include span-columns(4);
+            }
+        }
+        div.museum_visit {
+            div {
+                @include span-columns(4);
+                p {
+                    @include pad(0 0 .5em 0);
+                    span {
+                        font-family: $HelveticaHeavy;
+                    }
+                }
+                ul {
+                    li {
+                        list-style: square;
+                        @include pad(0 1em .5em 0);
+                        margin-left: 1.2em;
+                    }
+                }
+                a {
+                    font-family: $HelveticaHeavy;
+                }
+            }
+            div.tours {
+                p {
+                    @include pad(0 0 .5em 0);
+                }
+            }
+        }
+        .museum_events {
+            @include span-columns(8);
+            div.museum_event {
+                border-bottom: 1px solid #777;
+                &:last-child {
+                    border: 0px;
+                }
+                @include clearfix;
+                div.event_info, div.event_image {
+                    @include pad(10px 0);
+                }
+                div.event_info {
+                    @include span-columns(4 of 8);
+                    a {
+                        font-family: $HelveticaHeavy;
+                    }
+                    ul {
+                        li {
+                            list-style: square;
+                            @include pad(0 1em 0 0);
+                            margin-left: 1.2em;
+                        }
+                    }
+                    p.event_date {
+                        display: block;
+                        width: 100%;
+                        font-family: $HelveticaHeavy;
+                    }
+                    p.event_title {
+                        display: block;
+                        font-family: $HelveticaHeavy;
+                        color: $red;
+                        @include pad(0 0 1em 0);
+                    }
+                }
+                div.event_image {
+                    @include span-columns(4 of 8);
+                }
+            }
+        }
         h3 {
             @include span-columns(4);
             font-family: $HelveticaBlack;
         }
         h4 {
+            font-family: $HelveticaBlack;
+        }
+        h5 {
+            @include span-columns(4);
             font-family: $HelveticaBlack;
         }
         .image {
@@ -496,6 +561,11 @@ section.layout {
                 }
                 span {
                     font-family: $HelveticaBlack;
+                }
+                ul {
+                    li {
+                        color: lime;
+                    }
                 }
             }
         }
@@ -740,7 +810,6 @@ section.layout {
                     cursor: pointer;
                 }
                 height: 50px;
-
                 .title {
                     font-family: $HelveticaHeavy;
                 }
@@ -883,6 +952,45 @@ section.projects {
             position: absolute;
             top: 0;
             right: 0;
+        }
+    }
+}
+aside.map {
+    @include pad(0 0 1em 0);
+    @include clearfix;
+    #map-canvas {
+        @include span-columns(8);
+        @include shift(4);
+        @include pad(0 0 1em 0);
+        @include clearfix;
+        height: 400px;
+    }
+    .gmnoprint img {
+        max-width: none;
+    }
+}
+footer {
+    @include outer-container;
+    @include pad(0 $desk 3em $desk);
+    div {
+        border-top: 1px solid $gray;
+        @include pad(10px 0 0 0);
+        h1 {
+            @include span-columns(4);
+            font-size: .85em;
+            display: block;
+            line-height: 1.2em;
+        }
+        ul {
+            @include span-columns(8);
+            li {
+                @include span-columns(2 of 8);
+                a {
+                    font-size: .85em;
+                    line-height: 1.2em;
+                    display: block;
+                }
+            }
         }
     }
 }

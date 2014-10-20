@@ -3,11 +3,12 @@ jQuery(document).ready(function($) {
     $(window).load(function() {
         $(document).bind('touchmove', false);
         $('.statement_slider').flexslider({
-        animation: "fade",
-        animationLoop: true,
-        animationSpeed: 1000,
-        controlNav: false,
-        directionNav: false,
+            animation: "fade",
+            animationLoop: true,
+            animationSpeed: 1000,
+            controlNav: false,
+            directionNav: false,
+            slideshowSpeed: 9000
         });
     });
 

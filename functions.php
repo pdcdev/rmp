@@ -11,7 +11,6 @@ function theme_styles() {
     wp_enqueue_style( 'animation-ie7', get_template_directory_uri() . '/css/fontello/css/fontello-ie7.css' );
     wp_enqueue_style( 'fontello', get_template_directory_uri() . '/css/fontello/css/fontello.css' );
     wp_register_style( 'fancybox', get_template_directory_uri() . '/css/fancybox.css');
-
     if ( is_single() || is_page("museum" || is_page("profile")) ) {
         wp_enqueue_style('fancybox');
     }
@@ -35,7 +34,13 @@ function theme_js() {
     wp_register_script( 'awards-year-sort', get_template_directory_uri() . '/js/awards-year-sort.js', array('jquery'), '', true );
     wp_register_script( 'splash-slider', get_template_directory_uri() . '/js/splash.js', array('jquery'), '', true );
     wp_register_script( 'fancybox', get_template_directory_uri() . '/js/fancybox.js', array('jquery'), '', true );
+    wp_register_script( 'googlemap', get_template_directory_uri() . '/js/googlemap.js', array('jquery','googleapi'), '', true );
+    wp_register_script( 'googleapi', 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', array('jquery'), '', true );
 
+    if ( is_page('museum') ) {
+        wp_enqueue_script( 'googlemap' );
+        wp_enqueue_script( 'googleapi' );
+    }
     if ( is_front_page('splash-slider') ) {
         wp_enqueue_script( 'home' );
         wp_enqueue_script( 'splash-slider' );
@@ -57,7 +62,7 @@ function theme_js() {
     if ( is_page('awards') ) {
         wp_enqueue_script( "awards-year-sort" );
     }
-    if ( is_single() || is_page("museum") || is_page("profile")) {
+    if ( is_single() || is_page("museum") || is_page("Profile")) {
         wp_enqueue_script( 'fancybox' );
         // wp_enqueue_script( 'flexslider' );
         wp_enqueue_script( 'waypoints' );

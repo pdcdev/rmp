@@ -17,7 +17,7 @@ get_header(); ?>
     </div>
 </nav>
 <div class="post_header">
-
+    
 </div>
 <div class="project_header"></div>
     <section class="layout contact_layout">
@@ -51,7 +51,6 @@ get_header(); ?>
             </div>
         </div>
         <div>
-
             <h4>Richard Meier Model Museum</h4>
             <div>
                 <?php the_field("model_museum_info"); ?>
@@ -60,10 +59,10 @@ get_header(); ?>
             <div>
                 <?php the_field("student_requests"); ?>
             </div>
-            <h4>Site Credit</h4>
+            <h4>Site Credits</h4>
             <p>
-                <a href="http://vignelli.com" target="_blank">Vignelli Associates</a><br />
-                <a href="http://piscatello.com" target="_blank">Piscatello Design Centre</a>
+                <a href="http://piscatello.com" target="_blank">Piscatello Design Centre</a><br />
+                <a href="http://vignelli.com" target="_blank">Vignelli Associates</a>
             </p>
         </div>
         </article>

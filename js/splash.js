@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
         controlNav: false,
         directionNav: false,
         useCSS: true,
+        slideshowSpeed: 8000,
         start: function() {
             $(".slides").show();
         }
